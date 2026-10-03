@@ -176,7 +176,6 @@ class _LoginScreenState extends State<LoginScreen> {
   // --- BRANDING PANEL (FOR DESKTOP / WIDE SCREEN) ---
   Widget _buildBrandingPanel(bool isDark) {
     return Container(
-      padding: const EdgeInsets.all(48),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
@@ -186,143 +185,159 @@ class _LoginScreenState extends State<LoginScreen> {
               : [const Color(0xFF172554), const Color(0xFF1E3A8A)],
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // Top Crest & School Name
-          Row(
-            children: [
-              Container(
-                width: 48,
-                height: 48,
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.12),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.white.withOpacity(0.2)),
-                ),
-                child: const Center(
-                  child: Icon(
-                    Icons.account_balance_rounded,
-                    color: Colors.white,
-                    size: 26,
-                  ),
-                ),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: constraints.maxHeight,
               ),
-              const SizedBox(width: 14),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "SMA BRAWIJAYA",
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 0.8,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    "Sistem Informasi Akademik Terpadu",
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white70,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-
-          // Center: Value Proposition & Feature Highlights
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 40),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.12),
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.white.withOpacity(0.2)),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
+              child: IntrinsicHeight(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 32),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Icon(Icons.verified_rounded, size: 14, color: Color(0xFF38BDF8)),
-                      const SizedBox(width: 6),
-                      Text(
-                        "Portal Resmi Terverifikasi",
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
+                      // Top Crest & School Name
+                      Row(
+                        children: [
+                          Container(
+                            width: 44,
+                            height: 44,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.12),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(color: Colors.white.withOpacity(0.2)),
+                            ),
+                            child: const Center(
+                              child: Icon(
+                                Icons.account_balance_rounded,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 14),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "SMA BRAWIJAYA",
+                                style: GoogleFonts.plusJakartaSans(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w800,
+                                  letterSpacing: 0.8,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                "Sistem Informasi Akademik Terpadu",
+                                style: GoogleFonts.plusJakartaSans(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+
+                      // Center: Value Proposition & Feature Highlights
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 24),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.12),
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(color: Colors.white.withOpacity(0.2)),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(Icons.verified_rounded, size: 14, color: Color(0xFF38BDF8)),
+                                  const SizedBox(width: 6),
+                                  Text(
+                                    "Portal Resmi Terverifikasi",
+                                    style: GoogleFonts.plusJakartaSans(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: 16),
+                            Text(
+                              "Platform Akademik\nDigital Unggul & Terintegrasi",
+                              style: GoogleFonts.plusJakartaSans(
+                                fontSize: 28,
+                                fontWeight: FontWeight.w800,
+                                color: Colors.white,
+                                height: 1.25,
+                              ),
+                            ),
+                            const SizedBox(height: 12),
+                            Text(
+                              "Mendukung pengelolaan administrasi, rekapitulasi penilaian kurikulum, jadwal pelajaran presisi, hingga penerbitan rapor digital secara efisien.",
+                              style: GoogleFonts.plusJakartaSans(
+                                fontSize: 13,
+                                color: Colors.white70,
+                                height: 1.5,
+                              ),
+                            ),
+                            const SizedBox(height: 24),
+
+                            // 3 Highlights
+                            _buildHighlightItem(
+                              icon: Icons.shield_outlined,
+                              title: "Akses Peran Khusus",
+                              desc: "Hak akses terpisah & aman untuk Admin, Guru Pengajar, dan Siswa.",
+                            ),
+                            const SizedBox(height: 14),
+                            _buildHighlightItem(
+                              icon: Icons.analytics_outlined,
+                              title: "Statistik & Rapor Digital",
+                              desc: "Pemantauan perkembangan belajar siswa dan unduh rapor PDF resmi.",
+                            ),
+                            const SizedBox(height: 14),
+                            _buildHighlightItem(
+                              icon: Icons.cloud_sync_outlined,
+                              title: "Sinkronisasi Realtime",
+                              desc: "Database cloud terkoneksi langsung tanpa keterlambatan data.",
+                            ),
+                          ],
                         ),
+                      ),
+
+                      // Bottom: Trust Badge
+                      Row(
+                        children: [
+                          const Icon(Icons.verified_user_outlined, color: Colors.white54, size: 15),
+                          const SizedBox(width: 8),
+                          Text(
+                            "T.A. 2024/2025 • Kurikulum Merdeka Terintegrasi",
+                            style: GoogleFonts.plusJakartaSans(
+                              fontSize: 11,
+                              color: Colors.white54,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 20),
-                Text(
-                  "Platform Akademik\nDigital Unggul & Terintegrasi",
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.white,
-                    height: 1.25,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  "Mendukung pengelolaan administrasi, rekapitulasi penilaian kurikulum, jadwal pelajaran presisi, hingga penerbitan rapor digital secara efisien.",
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 14,
-                    color: Colors.white70,
-                    height: 1.6,
-                  ),
-                ),
-                const SizedBox(height: 36),
-
-                // 3 Highlights
-                _buildHighlightItem(
-                  icon: Icons.shield_outlined,
-                  title: "Akses Peran Khusus",
-                  desc: "Hak akses terpisah & aman untuk Admin, Guru Pengajar, dan Siswa.",
-                ),
-                const SizedBox(height: 16),
-                _buildHighlightItem(
-                  icon: Icons.analytics_outlined,
-                  title: "Statistik & Rapor Digital",
-                  desc: "Pemantauan perkembangan belajar siswa dan unduh rapor PDF resmi.",
-                ),
-                const SizedBox(height: 16),
-                _buildHighlightItem(
-                  icon: Icons.cloud_sync_outlined,
-                  title: "Sinkronisasi Realtime",
-                  desc: "Database cloud terkoneksi langsung tanpa keterlambatan data.",
-                ),
-              ],
-            ),
-          ),
-
-          // Bottom: Trust Badge
-          Row(
-            children: [
-              const Icon(Icons.verified_user_outlined, color: Colors.white54, size: 16),
-              const SizedBox(width: 8),
-              Text(
-                "T.A. 2024/2025 • Kurikulum Merdeka Terintegrasi",
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 12,
-                  color: Colors.white54,
-                  fontWeight: FontWeight.w500,
-                ),
               ),
-            ],
-          ),
-        ],
+            ),
+          );
+        },
       ),
     );
   }

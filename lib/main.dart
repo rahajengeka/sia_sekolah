@@ -12,11 +12,20 @@ import 'theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  // Konfigurasi Locale Indonesia
-  Intl.defaultLocale = 'id_ID';
-  await initializeDateFormatting('id_ID', null);
+  try {
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  } catch (e) {
+    debugPrint("Firebase init error: $e");
+  }
+
+  try {
+    // Konfigurasi Locale Indonesia
+    Intl.defaultLocale = 'id_ID';
+    await initializeDateFormatting('id_ID', null);
+  } catch (e) {
+    debugPrint("Intl init error: $e");
+  }
 
   runApp(const MyApp());
 }
