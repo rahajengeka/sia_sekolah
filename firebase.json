@@ -1,0 +1,35 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "sia-sekolah-14e9d",
+          "appId": "1:962609104022:android:f7d81341f33cc4bc136eb7",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "sia-sekolah-14e9d",
+          "configurations": {
+            "android": "1:962609104022:android:f7d81341f33cc4bc136eb7",
+            "web": "1:962609104022:web:b1655fe7b627828c136eb7"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ]
+}
